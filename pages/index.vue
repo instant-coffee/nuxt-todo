@@ -2,6 +2,7 @@
   <div>
     {{counter}}
     <button @click="increment">+</button>
+    <button @click="decrement">-</button>
   </div>
 </template>
 
@@ -16,7 +17,8 @@
     },
     methods: {
       ...mapMutations([
-        'increment'
+        'increment',
+        'decrement'
       ])
     }
   }
