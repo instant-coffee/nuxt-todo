@@ -6,10 +6,10 @@ export const state = {
 }
 
 export const mutations = {
-  increment(state){
+  increment (state) {
     state.counter++
   },
-  decrement(state){
+  decrement (state) {
     state.counter--
   }
 }

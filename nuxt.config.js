@@ -13,6 +13,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  css: ['tachyons/css/tachyons.css'],
   /*
   ** Customize the progress-bar color
   */
@@ -36,3 +37,4 @@ module.exports = {
     }
   }
 }
+
