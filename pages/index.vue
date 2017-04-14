@@ -1,15 +1,23 @@
 <template>
-  <div>{{counter}}</div>
+  <div>
+    {{counter}}
+    <button @click="increment">+</button>
+  </div>
 </template>
 
 <script>
-  import {mapState} from 'vuex'
+  import {mapState, mapMutations} from 'vuex'
 
   export default {
     computed: {
       ...mapState({
         counter: state => state.counter
       })
+    },
+    methods: {
+      ...mapMutations([
+        'increment'
+      ])
     }
   }
 </script>
