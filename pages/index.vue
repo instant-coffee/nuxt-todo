@@ -12,10 +12,13 @@
   import axios from 'axios'
 
   export default {
-    async fetch ({ store }) {
-      const res = await axios.get('https://todos-api-lshetcazme.now.sh/todos')
-      console.log(res.data)
-      store.commit('init', res.data)
+    async fetch ({ store, redirect }) {
+      try {
+        const res = await axios.get('https://todos-api-xeywbdjlvd.now.sh/todos')
+        store.commit('init', res.data)
+      } catch (error) {
+        redirect('/error')
+      }
     },
     computed: {
       ...mapState({
