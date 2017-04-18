@@ -1,15 +1,22 @@
 <template>
   <div>
-    <form @submit.prevent="add(task)">
+
+    <form class="pa3 pa5-ns" @submit.prevent="add(task)">
       <input v-model="task" type="text">
+      <input type="submit" value="Add">
     </form>
 
-    <h1 class="f4 bold center mw5">Todos</h1>
-    <ul class="list pl0 ml0 center mw5 ba b--light-silver br3">
-      <li v-for="todo of todos" class="ph3 pv2 bb b--light-silver">
-        {{todo.id}}.{{todo.task}}
-      </li>
-    </ul>
+    <article class="pa3 pa5-ns">
+      <h1 class="f4 bold center mw6">Todos</h1>
+      <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
+        <li v-for="todo of todos" class="flex items-center ph3 pv4 bb b--light-silver">
+          <span v-bind:class="{strike: todo.complete}" class="flex-auto">{{todo.id}}.{{todo.task}}</span>
+          <button @click="toggle(todo)"><img src="https://icon.now.sh/check_circle" alt=""></button>
+          <button @click="remove(todo)"><img src="https://icon.now.sh/delete" alt=""></button>
+        </li>
+      </ul>
+    </article>
+
   </div>
 </template>
 
@@ -31,7 +38,9 @@
     },
     methods: {
       ...mapActions([
-        'add'
+        'add',
+        'remove',
+        'toggle'
       ])
     }
   }
